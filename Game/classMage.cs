@@ -37,12 +37,5 @@ namespace Game
             Console.WriteLine("Blink");
         }
 
-        public enum Spellbook
-        {
-            fireball = 1,
-            iceLance = 2,
-            felBlast = 3,
-            blink = 4
-        }
     }
 }

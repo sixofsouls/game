@@ -14,7 +14,7 @@ namespace Game
     {
         static void Main(string[] args)
         {
-
+            Start:
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
@@ -23,19 +23,15 @@ namespace Game
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
             Console.WriteLine("\nIntroduce yourself\n");
-            int LifePoints = 100;
-            if (LifePoints == 0)
-            {
-                Console.WriteLine("You are dead");
-                Console.WriteLine("GAME OVER");
-                Console.ReadLine();
-            }
+
             var playerName = "";
+            Character currentLife = new Character();
+            currentLife.Health = 10;
 
             while (true)
             {
-            var input = Console.ReadLine();
-            const string pattern = @"^[a-zA-Z]+$";
+                var input = Console.ReadLine();
+                const string pattern = @"^[a-zA-Z]+$";
 
                 if (input != null && Regex.IsMatch(input, pattern))
                 {
@@ -57,9 +53,8 @@ namespace Game
             Console.WriteLine("Well, right now you can only play mage");
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
-            Console.WriteLine("****************************");
-            Console.WriteLine("\n\n"+ playerName + ", you are being teleported into battle");
-            Console.WriteLine("\nYou encounter stone golem, what you are gonna do?");
+            Console.WriteLine("\n\n" + playerName + ", you are being teleported into battle");
+            Console.WriteLine("\nYou encounter stone giant, what you are gonna do?");
             var abilityUsed = new classMage();
             while (true)
             {
@@ -77,35 +72,30 @@ namespace Game
                     abilityUsed.icelance();
                     Console.WriteLine(
                         "Golem freezes for a little while, then after a short while, throws a piece of stone in your face. You take 1 damage");
-                    LifePoints--;
-                    Console.WriteLine("You have " + LifePoints + " life remaining");
+                    Console.WriteLine("You have " + currentLife.Health + " life remaining");
                 }
                 else if (input_.Contains("fireball"))
                 {
                     abilityUsed.fireball();
-                    Console.WriteLine("");
-                    LifePoints--;
-                    LifePoints--;
-                    Console.WriteLine("You have " + LifePoints + " life remaining");
+                    Console.WriteLine(
+                        "Fireball ignited and molted the giant. Then, it throws piece of lava at you. You take 2 damage");
+                    currentLife.Health--;
+                    currentLife.Health--;
+                    Console.WriteLine("You have " + currentLife.Health + " life remaining");
                 }
                 else if (input_.Contains("blink"))
                 {
                     abilityUsed.blink();
                     Console.WriteLine("");
-                    Console.WriteLine("You have " + LifePoints + " life remaining");
+                    Console.WriteLine("You have " + currentLife.Health + " life remaining");
                 }
-                
-            }
-            //       else if (input_.Contains())
-        }
-            //var input_ = Console.ReadLine();
-            //int input_parsed;
-            //if (int.TryParse(input_, out input_parsed))
-            //{
-            //    abilityUsed.felBlast();
-            //}
-            //else Console.WriteLine("Invalid input... Select a number");
+                else
+                {
+                    Console.WriteLine("Invalid input. No spell detected");
+                }
 
+            }
         }
+    }
 }
 

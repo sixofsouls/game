@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character.cs" />
     <Compile Include="friendlyNPC.cs" />
     <Compile Include="Mobs.cs" />
     <Compile Include="classMage.cs" />
