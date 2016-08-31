@@ -11,6 +11,7 @@ namespace Game
     public class Character
     {
         private int health;
+        private int mana;
 
         public int Health
         {
@@ -28,5 +29,23 @@ namespace Game
                 }
             }
         }
+
+        public int Mana
+        {
+            get { return mana; }
+            set
+            {
+                if (value < 0)
+                {
+                    Console.WriteLine("\n You are out of mana!");
+                }
+                else
+                {
+                    mana = value;
+                } 
+                
+            }
+        }
+        
     }
 }

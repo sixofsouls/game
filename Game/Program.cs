@@ -12,9 +12,9 @@ namespace Game
 {
     class Program
     {
-        static void Main(string[] args)
+        static string PlayerName()
         {
-            Start:
+            var playerName = "";
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
@@ -23,10 +23,6 @@ namespace Game
             Console.WriteLine("****************************");
             Console.WriteLine("****************************");
             Console.WriteLine("\nIntroduce yourself\n");
-
-            var playerName = "";
-            Character currentLife = new Character();
-            currentLife.Health = 10;
 
             while (true)
             {
@@ -49,12 +45,16 @@ namespace Game
                     break;
                 }
             }
-            Console.WriteLine("****************************");
-            Console.WriteLine("Well, right now you can only play mage");
-            Console.WriteLine("****************************");
-            Console.WriteLine("****************************");
-            Console.WriteLine("\n\n" + playerName + ", you are being teleported into battle");
-            Console.WriteLine("\nYou encounter stone giant, what you are gonna do?");
+            return playerName;
+        }
+        static void Main(string[] args)
+    {
+        Character currentLife = new Character();
+        currentLife.Health = 10;
+
+        Console.WriteLine("\n\n" + PlayerName() + ", you are being teleported into battle");
+
+        Console.WriteLine("\nYou encounter stone giant, what you are gonna do?");
             var abilityUsed = new classMage();
             while (true)
             {
@@ -95,6 +95,10 @@ namespace Game
                 }
 
             }
+        }
+
+        static void introduction(string[] args)
+        {
         }
     }
 }
